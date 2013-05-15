@@ -1,6 +1,8 @@
 {
   "globals": {
-    "angular": false
+    "angular": false,
+    "Firebase": false,
+    "FirebaseAuthClient": false
   },
   "curly": true,
   "eqeqeq": true,
