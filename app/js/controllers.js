@@ -15,7 +15,7 @@ angular.module('myApp.controllers', []).
 
     $scope.logout = function() {
       auth.logout();
-    }
+    };
 
     $scope.register = function() {
       var ref = 'angular-flat-seed.firebaseio.com';  // TODO
@@ -32,6 +32,6 @@ angular.module('myApp.controllers', []).
         }
       });
       auth.login('persona');
-    }
+    };
 
   }]);
