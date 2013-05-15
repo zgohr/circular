@@ -1,0 +1,9 @@
+[submodule "flat-ui"]
+	path = flat-ui
+	url = git@github.com:designmodo/Flat-UI.git
+[submodule "angular"]
+	path = angular
+	url = git@github.com:angular/angular.js.git
+[submodule "angularfire"]
+	path = angularfire
+	url = git@github.com:firebase/angularFire.git

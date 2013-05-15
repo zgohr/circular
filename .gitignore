@@ -1,0 +1,10 @@
+.DS_Store
+logs/
+*.swp
+.sass-cache/
+node_modules/
+angularFire.js
+app/js/lib
+app/css
+scss/bootstrap.scss
+app/fonts
