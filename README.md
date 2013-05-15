@@ -1,4 +1,4 @@
-# Angular Foundation Kinvey Seed Project
+# Flat-UI, AngularJS, Firebase Seed Project
 
 * [AngularJS](http://angularjs.org/)
 * [Flat UI](http://designmodo.github.io/Flat-UI/)
