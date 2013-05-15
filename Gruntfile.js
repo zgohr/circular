@@ -130,5 +130,5 @@ module.exports = function(grunt) {
   grunt.registerTask('go', ['clean', 'copy']);
   grunt.registerTask('serve', ['connect:devserver']);
   grunt.registerTask('hint', ['jshint']);
-  grunt.registerTask('default', ['go', 'hint', 'serve', 'sass:dev'])
+  grunt.registerTask('default', ['go', 'sass:dev', 'hint', 'serve'])
 };
