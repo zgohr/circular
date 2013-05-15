@@ -126,10 +126,9 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['karma:unit'])
   grunt.registerTask('e2e', ['karma:e2e'])
 
-  grunt.registerTask('default', ['sass:dev']);
   grunt.registerTask('prod', ['sass:prod']);
   grunt.registerTask('go', ['clean', 'copy']);
   grunt.registerTask('serve', ['connect:devserver']);
   grunt.registerTask('hint', ['jshint']);
-  grunt.registerTask('default', ['go', 'hint', 'serve'])
+  grunt.registerTask('default', ['go', 'sass:dev', 'hint', 'serve'])
 };
