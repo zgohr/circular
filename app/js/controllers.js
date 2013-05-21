@@ -11,17 +11,16 @@ angular.module('myApp.controllers', []).
                             '$location',
                             'angularFire',
                             function($scope, $location, angularFire) {
-    var auth;
 
     $scope.logout = function() {
-      auth.logout();
+      $scope.auth.logout();
     };
 
     $scope.register = function() {
       var ref = 'angular-flat-seed.firebaseio.com';  // TODO
       var firebase = new Firebase(ref);
 
-      auth = new FirebaseAuthClient(firebase, function (error, user) {
+      $scope.auth = new FirebaseAuthClient(firebase, function (error, user) {
         if (!error && user) {
           $scope.$apply(function(){
             $scope.logged = true;
@@ -31,7 +30,7 @@ angular.module('myApp.controllers', []).
           $scope.logged = false;
         }
       });
-      auth.login('persona');
+      $scope.auth.login('persona');
     };
 
   }]);

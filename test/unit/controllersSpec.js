@@ -2,15 +2,21 @@
 
 /* jasmine specs for controllers go here */
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
+describe('Controllers', function(){
+  beforeEach(module('myApp'));
 
+  describe('LoginCtrl', function() {
+    var scope, ctrl;
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+    beforeEach(inject(function($rootScope, $controller) {
+      scope = $rootScope.$new();
+      ctrl = $controller('LoginCtrl', {$scope: scope});
+    }));
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+    it('should generate auth client', function() {
+      scope.register();
+      expect(scope.auth).toBeDefined();
+      expect(scope.logged).toBeFalsy();
+    });
+  });
 });
