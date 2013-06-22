@@ -7,7 +7,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     jshint: {
       all: [
-        'Gruntfil.js',
+        'Gruntfile.js',
         'app/js/*.js'
       ],
       options: {
@@ -15,21 +15,23 @@ module.exports = function(grunt) {
       }
     },
 
-    sass: {
+    less: {
       dev: {
         options: {
-          style: 'expanded'
+          paths: ["app/css"],
+          compress: false
         },
         files: {
-          'app/css/app.css': 'scss/app.scss'
+          'app/css/app.css': 'less/app.less'
         }
       },
       prod: {
         options: {
-          style: 'compressed'
+          paths: ["app/css"],
+          compress: true
         },
         files: {
-          'app/css/app.css': 'scss/app.scss'
+          'app/css/app.css': 'less/app.less'
         }
       }
     },
@@ -46,7 +48,7 @@ module.exports = function(grunt) {
               util.rewrite(),
               connect.static(options.base),
               connect.directory(options.base)
-            ]
+            ];
           }
         }
       }
@@ -67,8 +69,8 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['scss/*.scss'],
-        tasks: 'sass:dev'
+        files: ['less/*.less'],
+        tasks: 'less:dev'
       }
     },
 
@@ -116,19 +118,19 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch'); // register contrib tasks
-  grunt.loadNpmTasks('grunt-contrib-sass');  // compile sass
+  grunt.loadNpmTasks('grunt-contrib-less');  // compile less
   grunt.loadNpmTasks('grunt-contrib-clean');  // delete files
   grunt.loadNpmTasks('grunt-contrib-copy');  // copy files
   grunt.loadNpmTasks('grunt-contrib-connect');  // file server
   grunt.loadNpmTasks('grunt-contrib-jshint');  // code analysis
   grunt.loadNpmTasks('grunt-karma');  // tests
 
-  grunt.registerTask('test', ['karma:unit'])
-  grunt.registerTask('e2e', ['karma:e2e'])
+  grunt.registerTask('test', ['karma:unit']);
+  grunt.registerTask('e2e', ['karma:e2e']);
 
   grunt.registerTask('prod', ['sass:prod']);
   grunt.registerTask('go', ['clean', 'copy']);
   grunt.registerTask('serve', ['connect:devserver']);
   grunt.registerTask('hint', ['jshint']);
-  grunt.registerTask('default', ['go', 'sass:dev', 'hint', 'serve'])
+  grunt.registerTask('default', ['go', 'less:dev', 'hint', 'serve']);
 };
